@@ -1,0 +1,62 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Price
+{% endblock %}
+{% block content %}
+	<h3 class="p-3">Price</h3>
+	<main>
+		<div class="container-fluid px-4 mt-3">
+
+			<div class="container h-100">
+
+				<div class="row justify-content-center align-items-center list-table  ">
+					<div class="col-12 col-md-10 col-lg-8 mt-4">
+						<table class="table">
+							<tbody>
+								<tr>
+									<th>Id</th>
+									<td>{{ price.id }}</td>
+								</tr>
+								<tr>
+									<th>Product</th>
+									<td>{{ price.product }}</td>
+								</tr>
+								<tr>
+									<th>Category</th>
+									<td>{{ price.category }}</td>
+								</tr>
+								<tr>
+									<th>Min Quantity</th>
+									<td>{{ price.Quantity }}</td>
+								</tr>
+                                <tr>
+									<th>Price</th>
+									<td>Rs.{{ price.price }} / {{ price.Quantity }}</td>
+								</tr>
+								<tr>
+									<th>Status</th>
+									<td>{{ price.status ? '<span>Available</span>' : '<span style="color:red">Not Available</span>' }}</td>
+								</tr>
+								<tr>
+									<th>InsertDate</th>
+									<td>{{ price.insertDate ? price.insertDate|date('Y-m-d H:i:s') : '' }}</td>
+								</tr>
+								<tr>
+									<th>UpdateDate</th>
+									<td>{{ price.updateDate ? price.updateDate|date('Y-m-d H:i:s') : '' }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+
+	<div class="container mt-3">
+		<div class="row float-start">
+			<a class="btn btn-sm btn-primary" href="{{ path('app_price_index') }}">back to list</a>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>vMart</title>
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/scss/global.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/css/admin.css') }}">
+        {% endblock %}
+    </head>
+    <body class="sb-nav-fixed">
+        {% block body %}
+        {% block adminnav %}
+         {{ include('admin/_admin_nav.html.twig') }}
+           {% endblock %}
+        <div id="layoutSidenav">
+        {% block adminsidemnu %}
+             {{ include('admin/_admin_sidemenu.html.twig') }}
+               {% endblock %}
+            <div id="layoutSidenav_content">
+             {% block content %}
+                {{ include('admin/_admin_content.html.twig') }}
+             {% endblock %}
+             {% block adminfooter %}
+                {{ include('admin/_admin_footer.html.twig') }}
+            {% endblock %} 
+            </div>
+        </div>
+    
+{% endblock %}
+
+{% block javascripts %}
+
+	<script src="{{ asset('build/js/common.js') }}"></script>
+
+{% endblock %}
+    </body>
+</html>

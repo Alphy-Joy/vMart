@@ -1,0 +1,52 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Category
+{% endblock %}
+{% block content %}
+	<h3 class="p-3">Category</h3>
+	<main>
+		<div class="container-fluid px-4 mt-3">
+			<div class="container h-100">
+				<div class="row justify-content-center align-items-center list-table  ">
+					<div class="col-12 col-md-10 col-lg-8 mt-4">
+						<table class="table">
+							<tbody>
+								<tr>
+									<th>Id</th>
+									<td>{{ category.id }}</td>
+								</tr>
+								<tr>
+									<th>CategoryName</th>
+									<td>{{ category.categoryName }}</td>
+								</tr>
+								<tr>
+									<th>Status</th>
+									<td>{{ category.status ? '<span>Available</span>' : '<span style="color:red">Not Available</span>' }}</td>
+								</tr>
+								<tr>
+									<th>CategoryCode</th>
+									<td>{{ category.categoryCode }}</td>
+								</tr>
+								<tr>
+									<th>InsertTime</th>
+									<td>{{ category.insertTime ? category.insertTime|date('Y-m-d H:i:s') : '' }}</td>
+								</tr>
+								<tr>
+									<th>UpdateTime</th>
+									<td>{{ category.updateTime ? category.updateTime|date('Y-m-d H:i:s') : '' }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+
+	<div class="container mt-3">
+		<div class="row float-start">
+			<a class="btn btn-sm btn-primary" href="{{ path('app_category_index') }}">back to list</a>
+		</div>
+	</div>
+{% endblock %}
